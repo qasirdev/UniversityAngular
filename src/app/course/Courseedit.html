@@ -1,0 +1,74 @@
+<br/>
+<br/>
+<div class="portlet box purple">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-gift"></i>Course Information </div>
+        <div class="tools">
+            <a href="" class="collapse"> </a>
+            <a href="#portlet-config" data-toggle="modal" class="config"> </a>
+            <a href="" class="reload"> </a>
+            <a href="" class="remove" ng-click="vm.cancelForm()"> </a>
+        </div>
+    </div>
+    <div class="portlet-body form">
+        <form role="form" name="addCourseForm" class="form-horizontal">
+            <div class="form-body">
+                <div class="form-group" ng-class="{'has-error':addCourseForm.courseId.$invalid && addCourseForm.courseId.$dirty , 'has-success':!addCourseForm.courseId.$invalid && addCourseForm.courseId.$dirty}">
+                    <label class="col-md-4 control-label">Course Id</label>
+                    <div class="col-md-8">
+                        <div class="input-icon right">
+                            <i class="fa fa-info-circle tooltips" ng-class="{'fa-exclamation':addCourseForm.courseId.$invalid && addCourseForm.courseId.$dirty }"
+                                data-original-title="Course Id" data-container="body" tooltip="{{vm.tooltip.courseId}}"></i>
+                            <input type="text" class="form-control" id="courseId" name="courseId" ng-model="vm.course.id" required>
+                        </div>
+                        <span class="help-block" ng-show="addCourseForm.courseId.$error.required && addCourseForm.courseId.$dirty">First name is Required</span>
+                    </div>
+                </div>
+                <div class="form-group" ng-class="{'has-error':addCourseForm.courseTitle.$invalid && addCourseForm.courseTitle.$dirty, 'has-success':!addCourseForm.courseTitle.$invalid && addCourseForm.courseTitle.$dirty}">
+                    <label class="col-md-4 control-label">Course Title</label>
+                    <div class="col-md-8">
+                        <div class="input-icon right">
+                            <i class="fa fa-info-circle tooltips" ng-class="{'fa-exclamation':addCourseForm.courseTitle.$invalid && addCourseForm.courseTitle.$dirty }"
+                                data-original-title="Course Title" data-container="body" tooltip="{{vm.tooltip.courseTitle}}"></i>
+                            <input type="text" class="form-control" id="courseTitle" name="courseTitle" ng-model="vm.course.Title" required>
+                        </div>
+                        <span class="help-block" ng-show="addCourseForm.courseTitle.$error.required && addCourseForm.courseTitle.$dirty">Last name is Required</span>
+                    </div>
+                </div>
+                <div class="form-group" ng-class="{'has-error':addCourseForm.courseTitle.$invalid && addCourseForm.courseTitle.$dirty, 'has-success':!addCourseForm.courseTitle.$invalid && addCourseForm.courseTitle.$dirty}">
+                    <label class="col-md-4 control-label">Course Title</label>
+                    <div class="col-md-8">
+                        <div class="input-icon right">
+                            <i class="fa fa-info-circle tooltips" ng-class="{'fa-exclamation':addCourseForm.credits.$invalid && addCourseForm.credits.$dirty }"
+                                data-original-title="Course Credits" data-container="body" tooltip="{{vm.tooltip.courseCredits}}"></i>
+                            <input type="text" class="form-control" id="credits" name="credits" ng-model="vm.course.Credits" required>
+                        </div>
+                        <span class="help-block" ng-show="addCourseForm.credits.$error.required && addCourseForm.credits.$dirty">Course Credit is Required</span>
+                    </div>
+                </div> 
+                <div class="form-group" ng-class="{'has-error':addCourseForm.department.$invalid && addCourseForm.department.$dirty}">
+                    <label for=" department" class="col-sm-4 control-label">Department 
+                            <!--<i class="im-info ml5" tooltip="{{tooltip.emailServer}}"></i>-->
+                        </label>
+                    <div class="col-sm-8">
+                        <select name="department" id="department" class="form-control" ng-model="vm.selectedDepartmentId" required>
+                            <option value="null">--Choose a Department--</option>
+                            <option ng-repeat="department in vm.departments" value="{{department.id}}" ng-selected="vm.selectedDepartmentId == department.id">{{department.Name}}</option>
+                        </select>
+                        <span class="help-block" ng-show="addCourseForm.department.$error.required && addCourseForm.department.$dirty">Department is Required</span>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="form-actions">
+                <div class="row">
+                    <div class="col-md-offset-4 col-md-8">
+                        <button type="button" class="btn default" ng-click="vm.cancelForm();">Cancel</button>
+                        <button type="submit" class="btn blue" ng-click="vm.submitForm();" ng-disabled="addCourseForm.$invalid">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

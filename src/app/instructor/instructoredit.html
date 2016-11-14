@@ -1,0 +1,65 @@
+<br/>
+<br/>
+<div class="portlet box purple">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-gift"></i>Instructor Information </div>
+        <div class="tools">
+            <a href="" class="collapse"> </a>
+            <a href="#portlet-config" data-toggle="modal" class="config"> </a>
+            <a href="" class="reload"> </a>
+            <a href="" class="remove" ng-click="vm.cancelForm()"> </a>
+        </div>
+    </div>
+    <div class="portlet-body form">
+        <form role="form" name="addInstructorForm" class="form-horizontal">
+            <div class="form-body">
+                <div class="form-group" ng-class="{'has-error':addInstructorForm.firstName.$invalid && addInstructorForm.firstName.$dirty , 'has-success':!addInstructorForm.firstName.$invalid && addInstructorForm.firstName.$dirty}">
+                    <label class="col-md-4 control-label">First Name</label>
+                    <div class="col-md-8">
+                        <div class="input-icon right">
+                            <i class="fa fa-info-circle tooltips" ng-class="{'fa-exclamation':addInstructorForm.firstName.$invalid && addInstructorForm.firstName.$dirty }"
+                                data-original-title="First Name" data-container="body" tooltip="{{vm.tooltip.firstName}}"></i>
+                            <input type="text" class="form-control" id="firstName" name="firstName" ng-model="vm.instructor.FirstName" required>
+                        </div>
+                        <span class="help-block" ng-show="addInstructorForm.firstName.$error.required && addInstructorForm.firstName.$dirty">First name is Required</span>
+                    </div>
+                </div>
+                <div class="form-group" ng-class="{'has-error':addInstructorForm.lastName.$invalid && addInstructorForm.lastName.$dirty, 'has-success':!addInstructorForm.lastName.$invalid && addInstructorForm.lastName.$dirty}">
+                    <label class="col-md-4 control-label">Last Name</label>
+                    <div class="col-md-8">
+                        <div class="input-icon right">
+                            <i class="fa fa-info-circle tooltips" ng-class="{'fa-exclamation':addInstructorForm.lastName.$invalid && addInstructorForm.lastName.$dirty }"
+                                data-original-title="Last Name" data-container="body" tooltip="{{vm.tooltip.lastName}}"></i>
+                            <input type="text" class="form-control" id="lastName" name="lastName" ng-model="vm.instructor.LastName" required>
+                        </div>
+                        <span class="help-block" ng-show="addInstructorForm.lastName.$error.required && addInstructorForm.lastName.$dirty">Last name is Required</span>
+                    </div>
+                </div>
+                <div class="form-group" ng-class="{'has-error':addInstructorForm.hireDate.$invalid && addInstructorForm.hireDate.$dirty, 'has-success':!addInstructorForm.hireDate.$invalid && addInstructorForm.hireDate.$dirty}">
+                    <label class="control-label col-md-4">Hire Date</label>
+                    <div class="col-md-8">
+                        <div class="input-group input-medium date date-picker" data-date-start-date="+0d">
+                            <input type="text" datepicker-popup="dd.MM.yyyy" is-open="vm.opened" ng-click="vm.open($event)" class="form-control" id="hireDate"
+                                name="hireDate" ng-model="vm.instructor.HireDate" required readonly>
+                            <span class="input-group-btn" ng-click="vm.open($event)">
+                                <button class="btn default" type="button">
+                                    <i class="fa fa-calendar"></i>
+                                </button>
+                            </span>
+                        </div>
+                        <!-- /input-group -->
+                    </div>
+                </div>
+            </div>
+            <div class="form-actions">
+                <div class="row">
+                    <div class="col-md-offset-4 col-md-8">
+                        <button type="button" class="btn default" ng-click="vm.cancelForm();">Cancel</button>
+                        <button type="submit" class="btn blue" ng-click="vm.submitForm();" ng-disabled="addInstructorForm.$invalid">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

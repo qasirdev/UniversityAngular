@@ -1,0 +1,78 @@
+<br/>
+<br/>
+<div class="portlet box purple">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="fa fa-gift"></i>Department Information </div>
+        <div class="tools">
+            <a href="" class="collapse"> </a>
+            <a href="#portlet-config" data-toggle="modal" class="config"> </a>
+            <a href="" class="reload"> </a>
+            <a href="" class="remove" ng-click="vm.cancelForm()"> </a>
+        </div>
+    </div>
+    <div class="portlet-body form">
+        <form role="form" name="addDepartmentForm" class="form-horizontal">
+            <div class="form-body">
+                <div class="form-group" ng-class="{'has-error':addDepartmentForm.departmentName.$invalid && addDepartmentForm.departmentName.$dirty , 'has-success':!addDepartmentForm.departmentName.$invalid && addDepartmentForm.departmentName.$dirty}">
+                    <label class="col-md-4 control-label">Department Name</label>
+                    <div class="col-md-8">
+                        <div class="input-icon right">
+                            <i class="fa fa-info-circle tooltips" ng-class="{'fa-exclamation':addDepartmentForm.departmentName.$invalid && addDepartmentForm.departmentName.$dirty }"
+                                data-original-title="First Name" data-container="body" tooltip="{{vm.tooltip.departmentName}}"></i>
+                            <input type="text" class="form-control" id="departmentName" name="departmentName" ng-model="vm.department.Name" required>
+                        </div>
+                        <span class="help-block" ng-show="addDepartmentForm.departmentName.$error.required && addDepartmentForm.departmentName.$dirty">Department name is Required</span>
+                    </div>
+                </div>
+                <div class="form-group" ng-class="{'has-error':addDepartmentForm.budget.$invalid && addDepartmentForm.budget.$dirty, 'has-success':!addDepartmentForm.budget.$invalid && addDepartmentForm.budget.$dirty}">
+                    <label class="col-md-4 control-label">Budget</label>
+                    <div class="col-md-8">
+                        <div class="input-icon right">
+                            <i class="fa fa-info-circle tooltips" ng-class="{'fa-exclamation':addDepartmentForm.budget.$invalid && addDepartmentForm.budget.$dirty }"
+                                data-original-title="Last Name" data-container="body" tooltip="{{vm.tooltip.budget}}"></i>
+                            <input type="text" class="form-control" id="budget" name="budget" ng-model="vm.department.Budget" required>
+                        </div>
+                        <span class="help-block" ng-show="addDepartmentForm.budget.$error.required && addDepartmentForm.budget.$dirty">Budget is Required</span>
+                    </div>
+                </div>                
+                <div class="form-group" ng-class="{'has-error':addDepartmentForm.startDate.$invalid && addDepartmentForm.startDate.$dirty, 'has-success':!addDepartmentForm.startDate.$invalid && addDepartmentForm.startDate.$dirty}">
+                    <label class="control-label col-md-4">Start Date</label>
+                    <div class="col-md-8">
+                        <div class="input-group input-medium date date-picker" data-date-start-date="+0d">
+                            <input type="text" datepicker-popup="dd.MM.yyyy" is-open="vm.opened" ng-click="vm.open($event)" class="form-control" id="startDate"
+                                name="startDate" ng-model="vm.department.StartDate" required readonly>
+                            <span class="input-group-btn" ng-click="vm.open($event)">
+                                <button class="btn default" type="button">
+                                    <i class="fa fa-calendar"></i>
+                                </button>
+                            </span>
+                        </div>
+                        <!-- /input-group -->
+                    </div>
+                </div>
+                <div class="form-group" ng-class="{'has-error':addDepartmentForm.administrator.$invalid && addDepartmentForm.administrator.$dirty}">
+                    <label for=" administrator" class="col-sm-4 control-label">Administrator 
+                            <!--<i class="im-info ml5" tooltip="{{tooltip.emailServer}}"></i>-->
+                        </label>
+                    <div class="col-sm-8">
+                        <select name="administrator" id="administrator" class="form-control" ng-model="vm.selectedAdministratorId">
+                            <option value="null">--Choose an Administrator--</option>
+                            <option ng-repeat="administrator in vm.administrators" value="{{administrator.id}}" ng-selected="vm.selectedAdministratorId == administrator.id">{{administrator.FirstName}}</option>
+                        </select>
+                        <!--<span class="help-block" ng-show="addDepartmentForm.administrator.$error.required && addDepartmentForm.administrator.$dirty">Administrator is Required</span>-->
+                    </div>
+                </div>
+                
+            </div>
+            <div class="form-actions">
+                <div class="row">
+                    <div class="col-md-offset-4 col-md-8">
+                        <button type="button" class="btn default" ng-click="vm.cancelForm();">Cancel</button>
+                        <button type="submit" class="btn blue" ng-click="vm.submitForm();" ng-disabled="addDepartmentForm.$invalid">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
